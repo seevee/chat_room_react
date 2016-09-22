@@ -1,9 +1,9 @@
 {
-  "name": "redux-simple-starter-extended",
+  "name": "chat_room_ui",
   "version": "1.0.1",
-  "description": "Simple starter package for Redux with React, Babel support",
+  "description": "Basic chat room implemented in React",
   "main": "index.js",
-  "repository": "git@github.com:seevee/ReduxSimpleStarter.git",
+  "repository": "git@github.com:seevee/chat_room_react.git",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
@@ -11,7 +11,7 @@
     "postinstall": "webpack -p",
     "start": "node server.js"
   },
-  "author": "Stephen Grider, Chris Vincent",
+  "author": "Chris Vincent",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -45,6 +45,8 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
-    "redux-promise": "^0.5.3"
+    "redux-form": "^6.0.5",
+    "redux-promise": "^0.5.3",
+    "redux-storage": "^4.1.1"
   }
 }
