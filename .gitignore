@@ -1,0 +1,10 @@
+/node_modules
+/rethinkdb_data
+bundle.js*
+npm-debug.log
+
+# vim
+*.swp
+# IntelliJ
+*.iml
+/.idea
