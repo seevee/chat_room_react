@@ -7,9 +7,9 @@ class ChatArea extends Component {
     //console.log('chatArea props: ', this.props)
     return this.props.chats.chats.map((chat) => {
       return (
-        <li key={chat.id}>
-          <span>{chat.user}</span>
-          <span>{chat.text}</span>
+        <li key={chat.id} className='chat'>
+          <span className='chat-user'>{chat.user}</span>
+          <span className='chat-text'>{chat.text}</span>
         </li>
       )
     })
@@ -19,7 +19,6 @@ class ChatArea extends Component {
     return (
       <div className='chat-area'>
         <ul className='chats'>
-          ChatArea
           {this.renderChats()}
         </ul>
         <NewChatForm />

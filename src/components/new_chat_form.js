@@ -4,19 +4,24 @@ import { createChat } from '../actions/index'
 
 class NewChatForm extends Component {
   onSend(props) {
-    let chat = props
-    chat.username = 'Joker'
-    //console.log('chat: ', chat)
+    let chat = {
+      text: props.text,
+      username: 'Joker'
+    }
     this.props.dispatch(createChat(chat))
   }
 
   render() {
     const { fields: { text }, handleSubmit, pristine, submitting } = this.props
     return (
-      <form onSubmit={handleSubmit(this.onSend.bind(this))}>
-        NewChatForm
+      <form
+        className='chat-form'
+        onSubmit={handleSubmit(this.onSend.bind(this))}>
         <label>Joker</label>
-        <Field name='text' component='input' type='text' />
+        <Field
+          name='text'
+          component='input'
+          type='text' />
         <button
           type='submit'
           disabled={ pristine || submitting }>
