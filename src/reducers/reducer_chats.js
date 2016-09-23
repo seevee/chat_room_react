@@ -1,11 +1,22 @@
-import { FETCH_CHATS } from '../actions/index'
+import { CREATE_CHAT } from '../actions/index'
 
-const INITIAL_STATE = { all: [], post: null }
+const INITIAL_STATE = { chats: [] }
 
 export default function(state = INITIAL_STATE, action) {
+  //console.log('reducer', action.type)
+  //console.log('reducer state: ', state)
   switch(action.type) {
-    case FETCH_CHATS:
-      return { ...state, chat: action.payload.data }
+    case CREATE_CHAT:
+      return Object.assign({}, state, {
+        chats: [
+          ...state.chats,
+          {
+            id: action.id,
+            text: action.text,
+            user: action.user
+          }
+        ]
+      })
     default:
       return state
   }

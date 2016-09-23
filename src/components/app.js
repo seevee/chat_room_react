@@ -5,7 +5,7 @@ import UserTray from './user_tray'
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className='chat-room-app'>
         App
         <ChatArea />
         <UserTray />

@@ -1,0 +1,28 @@
+body {
+  height: 100vh;
+}
+
+.chat-room-app {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.chat-area {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+}
+
+.chats {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.user-tray {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
