@@ -4,16 +4,12 @@ React/Redux implementation of a chat room UI. Using redux-form, react-fontawesom
 
 Client-side only.
 
-###Getting Started###
-
-There are two methods for getting started with this repo.
-
-####Familiar with Git?#####
+####Getting Started#####
 Checkout this repo, install dependencies, then start the gulp process with the following:
 
 ```
-	> git clone git@github.com:seevee/ReduxSimpleStarter.git
-	> cd ReduxSimpleStarter
+	> git clone git@github.com:seevee/chat_room_react.git
+	> cd chat_room_react
 	> npm install
 	> npm run dev
 ```
