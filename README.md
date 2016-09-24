@@ -1,8 +1,8 @@
-# ReduxSimpleStarter
+# Chat Room
 
-Template project forked from the [ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter) repo by Stephen Grider.
+React/Redux implementation of a chat room UI. Using redux-form, react-fontawesome, redux-storage, SASS.
 
-Heavily inspired by scottvrable's fork, but opinionated and optimized for two-space tabs, single quotes where possible, no semicolons, etc.
+Client-side only.
 
 ###Getting Started###
 
@@ -17,9 +17,3 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 	> npm install
 	> npm run dev
 ```
-
-####Roadmap#####
-
-* sass
-* passportjs
-* socket.io

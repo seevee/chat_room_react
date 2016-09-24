@@ -80,6 +80,10 @@ body {
     border-color: #FFFFFF;
     &:disabled {
       border-color: #666666;
+      color: #666666 !important;
+    }
+    &:active, &:focus, &:hover {
+      color: #43A6D8;
     }
   }
 }
