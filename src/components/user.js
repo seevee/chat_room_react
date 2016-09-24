@@ -10,8 +10,8 @@ export default class User extends Component {
         </div>
         <Avatar size='50' className='user-avatar'/>
         <div className='user-info'>
-          <div className='user-name'>Username</div>
-          <div className='user-status'>Status</div>
+          <div className='user-name'>{this.props.user.username}</div>
+          <div className='user-status'>{this.props.user.status}</div>
         </div>
       </div>
     )
