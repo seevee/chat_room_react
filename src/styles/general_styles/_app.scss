@@ -88,13 +88,27 @@ body {
   }
 }
 
-.user-tray {
-  padding: 1rem;
-  display: flex;
+.user-scroll {
   flex: 1;
-  flex-direction: column;
 
   background-color: #252C33;
   color: #FFFFFF;
   box-shadow: -1px -1px 2px #000000;
+}
+
+.user-tray {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.user {
+  margin: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  .user-icon, .user-avatar {
+    margin-right: 1rem;
+  }
 }
