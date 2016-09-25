@@ -1,27 +1,36 @@
 import React, { Component } from 'react'
-import { reduxForm, Field } from 'redux-form'
+import { reset, reduxForm, Field } from 'redux-form'
 import { createChat } from '../actions/index'
 
 class NewChatForm extends Component {
+  constructor(props) {
+    super(props)
+
+    this.onSend = this.onSend.bind(this)
+  }
+
   onSend(props) {
+    console.log(props)
     let chat = {
-      text: props.text,
+      text: props.chat,
       username: 'Joker'
     }
     this.props.dispatch(createChat(chat))
+    this.props.dispatch(reset('NewChatForm'))
   }
 
   render() {
-    const { fields: { text }, handleSubmit, pristine, submitting } = this.props
+    const { handleSubmit, pristine, submitting } = this.props
     return (
       <form
         className='chat-form'
-        onSubmit={handleSubmit(this.onSend.bind(this))}>
+        onSubmit={handleSubmit(this.onSend)}>
         <label>Joker</label>
         <Field
-          name='text'
+          name='chat'
           component='input'
-          type='text' />
+          type='text'
+        />
         <button
           type='submit'
           disabled={ pristine || submitting }>
@@ -42,8 +51,8 @@ function validate(values) {
   return errors
 }
 
-export default reduxForm({
-  form: 'ChatsNewForm',
-  fields: ['text'],
-  validate
-}, null, { createChat })(NewChatForm)
+NewChatForm = reduxForm({
+  form: 'NewChatForm'
+})(NewChatForm)
+
+export default NewChatForm

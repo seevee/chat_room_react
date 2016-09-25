@@ -5,9 +5,11 @@ import User from './user'
 
 class UserTray extends Component {
   renderUsers() {
-    return this.props.users.users.map((user) => {
+    let users = this.props.users.users
+    return Object.keys(users).map((user, index) => {
+    //return this.props.users.users.map((user) => {
       return (
-        <User user={user} />
+        <User user={users[user]} />
       )
     })
   }

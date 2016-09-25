@@ -94,12 +94,12 @@ body {
   background-color: #252C33;
   color: #FFFFFF;
   box-shadow: -1px -1px 2px #000000;
+  outline: 0;
 }
 
 .user-tray {
   display: flex;
   flex-direction: column;
-
 }
 
 .user {
