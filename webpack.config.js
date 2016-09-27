@@ -22,8 +22,17 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!postcss-loader!sass?sourceMap")
-    }]
+      loader: ExtractTextPlugin.extract("style-loader", "css?sourceMap!resolve-url!postcss-loader!sass?sourceMap")
+    },
+    {
+      test: /\.woff(2)?(\?[a-z0-9]+)?$/,
+      loader: "url-loader?limit=10000&mimetype=application/font-woff"
+    },
+    {
+      test: /\.(otf|ttf|eot|svg)(\?[a-z0-9]+)?$/,
+      loader: "file-loader"
+    }
+    ]
   },
   devtool: 'source-map',
   resolve: {

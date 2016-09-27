@@ -2,6 +2,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: stretch;
+  font-family: 'Aliquam';
 }
 
 .container {
@@ -59,6 +60,7 @@ body {
   box-shadow: 0px 0px 2px #000000;
 
   input, button {
+    font-family: 'Aliquam';
     height: 100%;
     background-color: #111518;
     border-radius: none;
