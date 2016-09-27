@@ -14,7 +14,7 @@ class User extends Component {
   render() {
     return (
       <div className='user'>
-        <i className='fa fa-circle-o-notch fa-2x' />
+        <i className='user-icon fa fa-circle-o-notch fa-2x' />
         <Avatar size='50' className='user-avatar' />
         <div className='user-info'>
           <div className='user-name'>{this.props.user.username}</div>
