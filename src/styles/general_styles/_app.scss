@@ -107,13 +107,19 @@ body {
 }
 
 .user {
-  margin: 0.75rem 1rem;
+  margin: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
+  background-color: #14171A;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   .user-icon, .user-avatar {
     margin-right: 1rem;
+  }
+  .user-icon {
+    margin-left: 0.5rem;
+    cursor: default;
   }
   .user-info {
     height: 100%;

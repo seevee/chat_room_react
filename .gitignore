@@ -2,6 +2,7 @@
 /rethinkdb_data
 bundle.js*
 npm-debug.log
+style.css*
 
 # vim
 *.swp
