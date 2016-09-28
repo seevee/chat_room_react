@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { reset, reduxForm, Field } from 'redux-form'
 import { createChat } from '../actions/index'
+import * as config from '../config'
 
 class NewChatForm extends Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class NewChatForm extends Component {
   }
 
   onSend(props) {
-    console.log(props)
     let chat = {
       text: props.chat,
       username: 'Joker'

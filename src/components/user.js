@@ -3,29 +3,17 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Avatar from 'react-avatar'
 import { updateUser } from '../actions/index'
+import * as config from '../config'
 
 class User extends Component {
   onStatusClick(props) {
     console.log('Status clicked')
     let user = this.props.user
     let status = ''
-    let statuses = [
-      'Online',
-      'Away',
-      'Offline',
-      'Playing'
-    ]
-    let index = Math.floor(Math.random() * statuses.length)
-    status = status.concat(statuses[index])
-    if (index === statuses.length - 1) {
-      let games = [
-        'Halo',
-        'Battlefront',
-        'Civilization',
-        'The Witcher',
-        'Battlefield One'
-      ]
-      status = status.concat(' ', games[Math.floor(Math.random() * games.length)])
+    let index = Math.floor(Math.random() * config.statuses.length)
+    status = status.concat(config.statuses[index])
+    if (index === config.statuses.length - 1) {
+      status = status.concat(' ', config.games[Math.floor(Math.random() * config.games.length)])
     }
     user.status = status
     this.props.updateUser(user)
@@ -60,7 +48,11 @@ class User extends Component {
 
     return (
       <div className='user'>
-        <i style={style} className={(indicatorStyle.spin ? 'fa-spin ' : '') + 'user-icon fa fa-circle-o-notch fa-2x'} />
+        <i
+          style={style}
+          className={(indicatorStyle.spin ? 'fa-spin ' : '') + 'user-icon fa fa-circle-o-notch fa-2x'}
+          onClick={this.onStatusClick.bind(this)}
+        />
         <Avatar size='50' className='user-avatar' name={this.props.user.username} />
         <div className='user-info'>
           <div className='user-name'>{this.props.user.username}</div>

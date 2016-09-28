@@ -4,7 +4,6 @@ import NewChatForm from './new_chat_form'
 
 class ChatArea extends Component {
   renderChats() {
-    //console.log('chatArea props: ', this.props)
     return this.props.chats.chats.map((chat) => {
       return (
         <li key={chat.id} className='chat'>
