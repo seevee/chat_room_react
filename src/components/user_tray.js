@@ -6,10 +6,10 @@ import User from './user'
 class UserTray extends Component {
   renderUsers() {
     let users = this.props.users.users
-    return Object.keys(users).map((user, index) => {
-    //return this.props.users.users.map((user) => {
+    //return Object.keys(users).map((user, index) => {
+    return users.map((user) => {
       return (
-        <User user={users[user]} />
+        <User user={user} />
       )
     })
   }
