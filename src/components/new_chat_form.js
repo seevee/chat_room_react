@@ -10,6 +10,8 @@ class NewChatForm extends Component {
 
     this.onSend = this.onSend.bind(this)
     this.sendBotReply = this.sendBotReply.bind(this)
+    this.recurseRandomMessages = this.recurseRandomMessages.bind(this)
+    this.recurseRandomMessages()
   }
 
   onSend(props) {
@@ -24,7 +26,7 @@ class NewChatForm extends Component {
 
   sendBotReply(chat) {
     let users = this.props.users.users
-    for (let i = 0; i < users.length; i++) {
+    for (let i = 1; i < users.length; i++) {
       if (chat.text.indexOf(users[i].username) !== -1) {
         let reply = {
           text: config.replies[Math.floor(Math.random() * config.replies.length)] + chat.username,
@@ -35,6 +37,18 @@ class NewChatForm extends Component {
         }, config.randomTime())
       }
     }
+  }
+
+  recurseRandomMessages() {
+    let users = this.props.users.users
+    let message = {
+      text: config.randomMessage(),
+      username: users[Math.floor(Math.random() * users.length)].username
+    }
+    setTimeout(() => {
+      this.props.dispatch(createChat(message))
+      this.recurseRandomMessages()
+    }, config.randomTime() * 2)
   }
 
   render() {
