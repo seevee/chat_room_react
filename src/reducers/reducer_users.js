@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     { id: 2, username: 'Batman', status: 'Online' },
     { id: 3, username: 'Catwoman', status: 'Playing Halo' },
     { id: 4, username: 'Penguin', status: 'Away' },
-    { id: 5, username: 'Robin', status: 'Away' }
+    { id: 5, username: 'Robin', status: 'Away' },
+    { id: 6, username: 'Gordon', status: 'Playing Battlefront' }
   ]
 }
 

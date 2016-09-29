@@ -40,7 +40,11 @@ class NewChatForm extends Component {
   }
 
   recurseRandomMessages() {
-    let users = this.props.users.users
+    let users = this.props.users.users.filter((user) => {
+      return user.status !== 'Offline' &&
+      user.status !== 'Away' &&
+      user.id !== 1
+    })
     let message = {
       text: config.randomMessage(),
       username: users[Math.floor(Math.random() * users.length)].username
@@ -48,7 +52,7 @@ class NewChatForm extends Component {
     setTimeout(() => {
       this.props.dispatch(createChat(message))
       this.recurseRandomMessages()
-    }, config.randomTime() * 2)
+    }, config.randomTime() * 3)
   }
 
   render() {

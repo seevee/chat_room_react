@@ -18,7 +18,15 @@ const messages = [
   'do a barrel roll, noob',
   'Alt F4',
   'Where\'s the pizza?',
-  'mmmmmmmm spicy'
+  'mmmmmmmm spicy',
+  'i like turtles',
+  'And now for something completely different',
+  'This is an ex-parrot!',
+  'Get on with it!',
+  'Anybody else feel like a little giggle?',
+  'He must have died while carving it',
+  'It\'s just a flesh wound',
+  'I\m afraid my walk has become rather sillier recently'
 ]
 
 export default messages
