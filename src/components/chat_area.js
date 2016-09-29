@@ -5,6 +5,10 @@ import Chat from './chat'
 
 class ChatArea extends Component {
   renderChats() {
+    // Scroll to bottom
+    let element = document.getElementsByClassName('chats')
+    element.scrollTop = element.scrollHeight
+
     return this.props.chats.chats.map((chat) => {
       return <Chat chat={chat} />
     })
