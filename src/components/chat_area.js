@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NewChatForm from './new_chat_form'
+import Chat from './chat'
 
 class ChatArea extends Component {
   renderChats() {
     return this.props.chats.chats.map((chat) => {
-      return (
-        <li key={chat.id} className='chat'>
-          <span className='chat-user'>{chat.user}</span>
-          <span className='chat-text'>{chat.text}</span>
-        </li>
-      )
+      return <Chat chat={chat} />
     })
   }
 

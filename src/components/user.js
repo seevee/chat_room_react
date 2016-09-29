@@ -5,6 +5,29 @@ import Avatar from 'react-avatar'
 import { updateUser } from '../actions/index'
 import * as config from '../config'
 
+const styleIndicator = (status) => {
+  let color = '#43A6D8'
+  let spin = true
+  switch (status) {
+    case 'Online':
+      color = 'green'
+      spin = true
+      break
+    case 'Offline':
+      color = '#666666'
+      spin = false
+      break
+    case 'Away':
+      color = 'yellow'
+      spin = false
+      break
+  }
+  return {
+    color: color,
+    spin: spin
+  }
+}
+
 class User extends Component {
   onStatusClick(props) {
     console.log('Status clicked')
@@ -18,30 +41,9 @@ class User extends Component {
     user.status = status
     this.props.updateUser(user)
   }
-  styleIndicator() {
-    let indicatorColor = '#43A6D8'
-    let spin = true
-    switch (this.props.user.status) {
-      case 'Online':
-        indicatorColor = 'green'
-        spin = true
-        break
-      case 'Offline':
-        indicatorColor = '#666666'
-        spin = false
-        break
-      case 'Away':
-        indicatorColor = 'yellow'
-        spin = false
-        break
-    }
-    return {
-      color: indicatorColor,
-      spin: spin
-    }
-  }
+
   render() {
-    let indicatorStyle = this.styleIndicator()
+    let indicatorStyle = styleIndicator(this.props.user.status)
     let style = {
       color: indicatorStyle.color
     }
