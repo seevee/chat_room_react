@@ -25,6 +25,7 @@ body {
   display: flex;
   flex: 2;
   flex-direction: column;
+
 }
 
 .chats {
@@ -32,6 +33,7 @@ body {
   display: flex;
   flex: 1;
   flex-direction: column;
+  justify-content: flex-end;
 
   min-height: 50vh;
   background-color: #181D20;
@@ -43,7 +45,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-begin;
+  margin-bottom: 0.35rem;
   .chat-user {
+    font-weight: bold;
     width: 6rem;
     margin-right: 1rem;
     text-align: right;
