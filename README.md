@@ -1,6 +1,11 @@
 # Chat Room
 
-React/Redux implementation of a chat room UI. Using redux-form, react-fontawesome, redux-storage, SASS.
+React/Redux implementation of a chat room UI. Using redux-form, redux-storage, SASS.
+
+Font Awesome used for spinning status indicator (click to randomize status).
+
+Bots will respond when called out by name.
+
 
 Client-side only.
 
