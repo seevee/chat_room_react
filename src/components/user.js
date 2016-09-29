@@ -5,40 +5,10 @@ import Avatar from 'react-avatar'
 import { updateUser } from '../actions/index'
 import * as config from '../config'
 
-const styleIndicator = (status) => {
-  let color = '#43A6D8'
-  let spin = true
-  switch (status) {
-    case 'Online':
-      color = 'green'
-      spin = true
-      break
-    case 'Offline':
-      color = '#666666'
-      spin = false
-      break
-    case 'Away':
-      color = 'yellow'
-      spin = false
-      break
-  }
-  return {
-    color: color,
-    spin: spin
-  }
-}
-
 class User extends Component {
   onStatusClick(props) {
-    console.log('Status clicked')
     let user = this.props.user
-    let status = ''
-    let index = Math.floor(Math.random() * config.statuses.length)
-    status = status.concat(config.statuses[index])
-    if (index === config.statuses.length - 1) {
-      status = status.concat(' ', config.games[Math.floor(Math.random() * config.games.length)])
-    }
-    user.status = status
+    user.status = config.randomStatus()
     this.props.updateUser(user)
   }
 
@@ -66,6 +36,29 @@ class User extends Component {
         </div>
       </div>
     )
+  }
+}
+
+const styleIndicator = (status) => {
+  let color = '#43A6D8'
+  let spin = true
+  switch (status) {
+    case 'Online':
+      color = 'green'
+      spin = true
+      break
+    case 'Offline':
+      color = '#666666'
+      spin = false
+      break
+    case 'Away':
+      color = 'yellow'
+      spin = false
+      break
+  }
+  return {
+    color: color,
+    spin: spin
   }
 }
 

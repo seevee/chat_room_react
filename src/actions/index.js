@@ -12,7 +12,6 @@ export function createChat(props) {
 }
 
 export function updateUser(props) {
-  console.log(props)
   return {
     type: UPDATE_USER,
     user: props
