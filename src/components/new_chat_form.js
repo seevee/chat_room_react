@@ -29,7 +29,7 @@ class NewChatForm extends Component {
   sendBotReply(chat) {
     let users = this.props.users.users
     for (let i = 1; i < users.length; i++) {
-      if (chat.text.indexOf(users[i].username) !== -1) {
+      if (chat.text.toLowerCase().indexOf(users[i].username.toLowerCase()) !== -1) {
         let reply = {
           text: config.replies[Math.floor(Math.random() * config.replies.length)] + chat.username,
           username: users[i].username
