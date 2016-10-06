@@ -1,3 +1,4 @@
+import RandomElement from './logic/randomElement'
 import RandomMessage from './logic/randomMessage'
 import RandomTime from './logic/randomTime'
 import RandomStatus from './logic/randomStatus'
@@ -7,6 +8,7 @@ import Statuses from './constants/statuses'
 import Games from './constants/games'
 import Replies from './constants/replies'
 
+export const randomElement = RandomElement
 export const randomMessage = RandomMessage
 export const randomTime = RandomTime
 export const randomStatus = RandomStatus

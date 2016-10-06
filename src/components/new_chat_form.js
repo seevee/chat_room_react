@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { createChat, updateUser } from '../actions/index'
 import * as config from '../config'
 
+const recurseRandomMessages = () => {
+}
+
 class NewChatForm extends Component {
   constructor(props) {
     super(props)
@@ -31,7 +34,7 @@ class NewChatForm extends Component {
     for (let i = 1; i < users.length; i++) {
       if (chat.text.toLowerCase().indexOf(users[i].username.toLowerCase()) !== -1) {
         let reply = {
-          text: config.replies[Math.floor(Math.random() * config.replies.length)] + chat.username,
+          text: config.randomElement(config.replies) + chat.username,
           username: users[i].username
         }
         setTimeout(() => {
@@ -49,7 +52,7 @@ class NewChatForm extends Component {
     })
     let message = {
       text: config.randomMessage(),
-      username: users[Math.floor(Math.random() * users.length)].username
+      username: config.randomElement(users).username
     }
     setTimeout(() => {
       this.props.dispatch(createChat(message))
@@ -61,7 +64,7 @@ class NewChatForm extends Component {
     let users = this.props.users.users.filter((user) => {
       return user.id !== 1
     })
-    let user = users[Math.floor(Math.random() * users.length)]
+    let user = config.randomElement(users)
     user.status = config.randomStatus()
     setTimeout(() => {
       this.props.dispatch(updateUser(user))
