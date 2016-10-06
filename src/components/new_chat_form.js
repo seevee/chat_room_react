@@ -4,7 +4,47 @@ import { connect } from 'react-redux'
 import { createChat, updateUser } from '../actions/index'
 import * as config from '../config'
 
-const recurseRandomMessages = () => {
+function recurseRandomMessages() {
+  let users = this.props.users.users.filter((user) => {
+    return user.status !== 'Offline' &&
+    user.status !== 'Away' &&
+    user.id !== 1
+  })
+  let message = {
+    text: config.randomMessage(),
+    username: config.randomElement(users).username
+  }
+  setTimeout(() => {
+    this.props.dispatch(createChat(message))
+    recurseRandomMessages.apply(this)
+  }, config.randomTime() * 3)
+}
+
+function recurseRandomStatuses() {
+  let users = this.props.users.users.filter((user) => {
+    return user.id !== 1
+  })
+  let user = config.randomElement(users)
+  user.status = config.randomStatus()
+  setTimeout(() => {
+    this.props.dispatch(updateUser(user))
+    recurseRandomStatuses.apply(this)
+  }, config.randomTime() * 8)
+}
+
+function sendBotReply(chat) {
+  let users = this.props.users.users
+  for (let i = 1; i < users.length; i++) {
+    if (chat.text.toLowerCase().indexOf(users[i].username.toLowerCase()) !== -1) {
+      let reply = {
+        text: config.randomElement(config.replies) + chat.username,
+        username: users[i].username
+      }
+      setTimeout(() => {
+        this.props.dispatch(createChat(reply))
+      }, config.randomTime())
+    }
+  }
 }
 
 class NewChatForm extends Component {
@@ -12,11 +52,8 @@ class NewChatForm extends Component {
     super(props)
 
     this.onSend = this.onSend.bind(this)
-    this.sendBotReply = this.sendBotReply.bind(this)
-    this.recurseRandomMessages = this.recurseRandomMessages.bind(this)
-    this.recurseRandomStatuses = this.recurseRandomStatuses.bind(this)
-    this.recurseRandomMessages()
-    this.recurseRandomStatuses()
+    recurseRandomMessages.call(this)
+    recurseRandomStatuses.call(this)
   }
 
   onSend(props) {
@@ -26,7 +63,7 @@ class NewChatForm extends Component {
     }
     this.props.dispatch(createChat(chat))
     this.props.dispatch(reset('NewChatForm'))
-    this.sendBotReply(chat)
+    sendBotReply.call(this, chat)
   }
 
   sendBotReply(chat) {
@@ -42,34 +79,6 @@ class NewChatForm extends Component {
         }, config.randomTime())
       }
     }
-  }
-
-  recurseRandomMessages() {
-    let users = this.props.users.users.filter((user) => {
-      return user.status !== 'Offline' &&
-      user.status !== 'Away' &&
-      user.id !== 1
-    })
-    let message = {
-      text: config.randomMessage(),
-      username: config.randomElement(users).username
-    }
-    setTimeout(() => {
-      this.props.dispatch(createChat(message))
-      this.recurseRandomMessages()
-    }, config.randomTime() * 3)
-  }
-
-  recurseRandomStatuses() {
-    let users = this.props.users.users.filter((user) => {
-      return user.id !== 1
-    })
-    let user = config.randomElement(users)
-    user.status = config.randomStatus()
-    setTimeout(() => {
-      this.props.dispatch(updateUser(user))
-      this.recurseRandomStatuses()
-    }, config.randomTime() * 8)
   }
 
   render() {
