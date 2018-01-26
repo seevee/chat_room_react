@@ -1,6 +1,6 @@
 {
   "name": "chat_room_ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Basic chat room implemented in React",
   "main": "index.js",
   "repository": "git@github.com:seevee/chat_room_react.git",
