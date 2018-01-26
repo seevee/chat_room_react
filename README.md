@@ -9,7 +9,7 @@ Bots will respond when called out by name.
 
 Client-side only.
 
-###Getting Started###
+### Getting Started
 Checkout this repo, install dependencies, then start the gulp process with the following:
 
 ```
