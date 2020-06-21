@@ -45,11 +45,11 @@
     "lodash": "^4.17.15",
     "path": "^0.12.7",
     "react": "^16.13.1",
-    "react-avatar": "^2.5.1",
+    "react-avatar": "^3.9.7",
     "react-dom": "^16.13.1",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-form": "^7.2.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-form": "^8.3.6",
     "redux-storage": "^4.1.1",
     "redux-storage-engine-localstorage": "^1.1.2"
   }
